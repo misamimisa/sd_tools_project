@@ -2,6 +2,9 @@
 Sptint 6. Software Developmant Tools.
 Vehicle Ads Dashboard
 
+https://github.com/misamimisa/sd_tools_project.git
+https://sd-tools-project.onrender.com
+
 # Streamlit Dashboard Project Readme
 
 ## Project Overview
@@ -27,7 +30,7 @@ It demonstrates how to:
 ## Installation
 1. Clone the repository:
 ```
-git clone <your-repo-url>
+git clone https://github.com/misamimisa/sd_tools_project.git
 ```
 2. Navigate to the project folder:
 ```
