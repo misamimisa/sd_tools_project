@@ -2,68 +2,67 @@
 Sptint 6. Software Developmant Tools.
 Vehicle Ads Dashboard
 
-Project Description:
+# Streamlit Dashboard Project Readme
 
-This project is an interactive data visualization dashboard built with Streamlit, using a dataset of vehicle advertisements from the US market. The app allows users to explore car listings and analyze vehicle attributes through interactive charts and graphs.
+## Project Overview
+This project is an interactive dashboard built with **Streamlit**, showcasing data exploration and visualization.
 
-Key Features:
+It demonstrates how to:
+- Load and analyze datasets with **pandas**.
+- Visualize data using **plotly.express** and **altair**.
+- Build interactive web applications with **Streamlit**.
 
-Interactive histograms showing the distribution of car prices, model years, and mileage.
+## Features
+- Interactive histograms and scatter plots for data analysis.
+- Pie charts for visualizing categorical data.
+- Widgets like checkboxes and sliders to adjust the output in real-time.
 
-Scatter plots to visualize relationships between vehicle price, year, and odometer readings.
+## Technologies Used
+- Python 3
+- pandas
+- streamlit
+- plotly.express
+- altair
 
-A dynamic pie chart displaying the share of vehicle types.
+## Installation
+1. Clone the repository:
+```
+git clone <your-repo-url>
+```
+2. Navigate to the project folder:
+```
+cd <your-project-folder>
+```
+3. (Optional) Create and activate a virtual environment.
+4. Install the project requirements:
+```
+pip install -r requirements.txt
+```
+5. Launch the app:
+```
+streamlit run app.py
+```
 
-Filtering options using checkboxes to include or exclude outliers or specific car types.
+## Deployment Instructions
+1. Ensure your repository contains the following files:
+   - `app.py`
+   - `requirements.txt`
+   - `.streamlit/config.toml`
+   - `vehicles_us.csv` dataset
+2. Push all changes to GitHub.
+3. Connect your GitHub repository to **Render.com** and deploy.
 
-Dropdown menus and widgets for flexible and user-friendly data exploration.
+## Streamlit Configuration Example
+In the `.streamlit/config.toml` file, add:
+```
+[server]
+headless = true
+port = 10000
 
-Technologies & Libraries Used:
+[browser]
+serverAddress = "0.0.0.0"
+serverPort = 10000
+```
 
-    Python 3.11
-
-    Pandas
-
-    Streamlit
-
-    Plotly Express
-
-    Seaborn (used for experimentation in Jupyter)
-
-    ipywidgets (used for notebook exploration)
-
-Project Structure
-
-├── app.py
-├── vehicles_us.csv
-├── requirements.txt
-└── README.md
-
-How to Run This Project Locally
-
-Clone the repository:
-
-git clone <https://github.com/misamimisa/sd_tools_project.git>
-cd <your_project_folder>
-
-Create and activate a virtual environment:
-
-    python -m venv my_env
-    my_env\Scripts\activate (on Windows)
-    source my_env/bin/activate (on macOS/Linux)
-
-Install the required libraries:
-
-    pip install -r requirements.txt
-
-Run the Streamlit app:
-
-    streamlit run app.py
-
-Data Source:
-
-The dataset used in this project is vehicles_us.csv, containing information about car ads, including price, year, condition, odometer, and other attributes.
-
-Author:
-
-Created by Mikhail Savluchinskii as part of a TripleTen project.
+## About the Project
+This project was created by Mikhail Savluchinskii as a learning exercise to build a complete interactive dashboard and deploy it using Streamlit and Render.
