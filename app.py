@@ -5,32 +5,40 @@ import ipywidgets as widgets
 from IPython.display import display
 import seaborn as sns
 import matplotlib.pyplot as plt
+import streamlit as st
+import pandas as pd
+import plotly.express as px
 
-# Загружаем данные
-df = pd.read_csv('vehicles_us.csv')
+# Load data
+df = pd.read_csv("vehicles_us.csv")
 
-st.header('Used Cars in the USA — Dashboard')
+# Header
+st.header("Used Cars Data Dashboard")
 
-# Добавляем чекбокс для отображения исходных данных
-if st.checkbox('Show raw data'):
+# Show dataframe with checkbox
+if st.checkbox("Show Raw Data"):
     st.write(df.head())
 
-# Гистограмма распределения пробега
-st.subheader('Distribution of Odometer Readings')
-fig_odometer = px.histogram(df, x='odometer', nbins=30, title='Odometer Histogram')
-st.plotly_chart(fig_odometer)
+# Histogram of price
+st.subheader("Price Distribution")
+st.plotly_chart(px.histogram(df, x="price", nbins=50, title="Price Distribution of Cars"))
 
-# Гистограмма распределения цен
-st.subheader('Distribution of Prices')
-fig_price = px.histogram(df, x='price', nbins=30, title='Price Histogram')
-st.plotly_chart(fig_price)
+# Scatter plot: price vs odometer
+st.subheader("Price vs Odometer")
+st.plotly_chart(px.scatter(df, x="odometer", y="price", color="type", title="Price vs Odometer Reading"))
 
-# Диаграмма рассеяния цена-пробег
-st.subheader('Scatter Plot: Odometer vs Price')
-fig_scatter = px.scatter(df, x='odometer', y='price', color='condition', title='Odometer vs Price by Condition')
-st.plotly_chart(fig_scatter)
+# Pie chart of car conditions
+st.subheader("Condition Distribution")
+condition_counts = df["condition"].value_counts().reset_index()
+condition_counts.columns = ["condition", "count"]
+fig_pie = px.pie(condition_counts, names="condition", values="count", title="Car Condition Distribution")
+st.plotly_chart(fig_pie)
 
-# Ещё одна диаграмма рассеяния: год выпуска - цена
-st.subheader('Scatter Plot: Year vs Price')
-fig_year_price = px.scatter(df, x='model_year', y='price', color='condition', title='Model Year vs Price by Condition')
-st.plotly_chart(fig_year_price)
+# Box plot: price by transmission
+st.subheader("Price by Transmission Type")
+st.plotly_chart(px.box(df, x="transmission", y="price", title="Price Variation by Transmission"))
+
+# Add interactive slider for model year
+st.subheader("Price Distribution for Selected Model Year")
+year = st.slider("Select model year:", int(df["model_year"].min()), int(df["model_year"].max()), 2015)
+st.plotly_chart(px.histogram(df[df["model_year"] == year], x="price", nbins=50, title=f"Price Distribution for Model Year {year}"))
