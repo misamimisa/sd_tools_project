@@ -28,7 +28,7 @@ Features
       Scatter plot of odometer vs. price
       Pie chart of car type distribution
 
-Technologies Used
+Technologies Used:
 
    Python 3
    pandas
@@ -49,11 +49,10 @@ Installation Instructions
    6. Open your browser and go to:
       http://localhost:10000
 
-Deployment on Render
+Deployment on Render:
    
    All project files are prepared for deployment.
    The .streamlit/config.toml file is configured for port 10000.
    Deployment instructions are provided in the Render dashboard.
 
-Author
-   Created by Mikhail Savluchinskii as part of a learning project on building dashboards with Streamlit.
+Created by Mikhail Savluchinskii as part of a learning project on building dashboards with Streamlit.
