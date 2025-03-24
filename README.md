@@ -5,67 +5,55 @@ Vehicle Ads Dashboard
 https://github.com/misamimisa/sd_tools_project.git
 https://sd-tools-project.onrender.com
 
-# Streamlit Dashboard Project Readme
+Project Overview
+   This project is an interactive dashboard built with Streamlit.
+   It allows users to explore used car market data, apply interactive filters, and visualize key metrics.
 
-## Project Overview
-This project is an interactive dashboard built with **Streamlit**, showcasing data exploration and visualization.
+Features
 
-It demonstrates how to:
-- Load and analyze datasets with **pandas**.
-- Visualize data using **plotly.express** and **altair**.
-- Build interactive web applications with **Streamlit**.
+   Data loading and preprocessing with pandas:
 
-## Features
-- Interactive histograms and scatter plots for data analysis.
-- Pie charts for visualizing categorical data.
-- Widgets like checkboxes and sliders to adjust the output in real-time.
+      Missing values for is_4wd are filled with 0 and converted to boolean.
+      Missing paint_color values are filled with 'unknown'.
+      Missing cylinders, model_year, and odometer are filled using the median per car type using transform().
 
-## Technologies Used
-- Python 3
-- pandas
-- streamlit
-- plotly.express
-- altair
+   Interactive sidebar filters:
 
-## Installation
-1. Clone the repository:
-```
-git clone https://github.com/misamimisa/sd_tools_project.git
-```
-2. Navigate to the project folder:
-```
-cd <your-project-folder>
-```
-3. (Optional) Create and activate a virtual environment.
-4. Install the project requirements:
-```
-pip install -r requirements.txt
-```
-5. Launch the app:
-```
-streamlit run app.py
-```
+      Car type selection
+      Price range slider
 
-## Deployment Instructions
-1. Ensure your repository contains the following files:
-   - `app.py`
-   - `requirements.txt`
-   - `.streamlit/config.toml`
-   - `vehicles_us.csv` dataset
-2. Push all changes to GitHub.
-3. Connect your GitHub repository to **Render.com** and deploy.
+   Visualizations with Plotly:
 
-## Streamlit Configuration Example
-In the `.streamlit/config.toml` file, add:
-```
-[server]
-headless = true
-port = 10000
+      Histogram of car prices
+      Scatter plot of odometer vs. price
+      Pie chart of car type distribution
 
-[browser]
-serverAddress = "0.0.0.0"
-serverPort = 10000
-```
+Technologies Used
 
-## About the Project
-This project was created by Mikhail Savluchinskii as a learning exercise to build a complete interactive dashboard and deploy it using Streamlit and Render.
+   Python 3
+   pandas
+   streamlit
+   plotly.express
+
+Installation Instructions
+
+   1. Clone the repository:
+      git clone https://github.com/misamimisa/sd_tools_project.git
+   2. Navigate to the project folder:
+      cd <your-project-folder> 
+   3. (Optional) Create and activate a virtual environment.
+   4. Install the dependencies:
+      pip install -r requirements.txt
+   5. Run the Streamlit app locally:
+      streamlit run app.py
+   6. Open your browser and go to:
+      http://localhost:10000
+
+Deployment on Render
+   
+   All project files are prepared for deployment.
+   The .streamlit/config.toml file is configured for port 10000.
+   Deployment instructions are provided in the Render dashboard.
+
+Author
+   Created by Mikhail Savluchinskii as part of a learning project on building dashboards with Streamlit.
